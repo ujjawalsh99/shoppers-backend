@@ -1,1 +1,1 @@
-Backend Project for Hoopla
+Backend Project for Shopper
