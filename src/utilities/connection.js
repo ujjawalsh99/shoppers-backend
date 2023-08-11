@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-let url="mongodb://localhost:27017/Userdata";
+let url="mongodb://127.0.0.1:27017/Userdata";
 
 //user schema def
 const User = 
@@ -128,7 +128,7 @@ let connection = {}
 //Returns model object of "Users" collection
 connection.getUserCollection = () => {
     //Establish connection and return model as promise
-    return mongoose.connect(url, {useNewUrlParser: true}).then( database => {
+    return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then( database => {
         return database.model('Users', userSchema)
     }).catch( error => {
         let err = new Error(error.message);
@@ -140,12 +140,10 @@ connection.getUserCollection = () => {
 //return model object of "product collection"
 connection.getProductCollection = () => {
     //Establish connection and return model as promise
-    return mongoose.connect(url, {useNewUrlParser: true}).then( database => {
+    return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then( database => {
         return database.model('Products', productSchema)
     }).catch( error => {
-        let err = new Error(error.message);
-        err.status = 500;
-        throw err;
+        console.log(error);
     });
 }
 
