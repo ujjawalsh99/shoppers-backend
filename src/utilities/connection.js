@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const atlas = 'mongodb+srv://udevelopers:u9qmkuhWGiVPA2ry@cluster0.jsrqrkt.mongodb.net/Userdata?retryWrites=true&w=majority';
 let url="mongodb://127.0.0.1:27017/Userdata";
 
 //user schema def
@@ -128,7 +129,7 @@ let connection = {}
 //Returns model object of "Users" collection
 connection.getUserCollection = () => {
     //Establish connection and return model as promise
-    return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then( database => {
+    return mongoose.connect(atlas, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false}).then( database => {
         return database.model('Users', userSchema)
     }).catch( error => {
         let err = new Error(error.message);
@@ -140,7 +141,7 @@ connection.getUserCollection = () => {
 //return model object of "product collection"
 connection.getProductCollection = () => {
     //Establish connection and return model as promise
-    return mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then( database => {
+    return mongoose.connect(atlas, {useNewUrlParser: true, useUnifiedTopology: true}).then( database => {
         return database.model('Products', productSchema)
     }).catch( error => {
         console.log(error);
