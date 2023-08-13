@@ -6,7 +6,9 @@ const requestLogger = require("./utilities/requestlogger");
 const router = require("./routes/routing");
 const router_product = require("./routes/product_routing");
 const create = require('./model/dbSetup');
+const dotenv = require('dotenv').config({path:'./config.env'});
 
+const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
@@ -25,6 +27,6 @@ app.use("/setupDB", async (req, res, next) => {
 
 app.use(errorLogger);
 
-app.listen(3000, () => {
-  console.log("Server started at 3000!");
+app.listen(PORT, () => {
+  console.log(`Server started at ${PORT}`);
 });

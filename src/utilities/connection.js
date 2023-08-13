@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
-const atlas = 'mongodb+srv://udevelopers:u9qmkuhWGiVPA2ry@cluster0.jsrqrkt.mongodb.net/Userdata?retryWrites=true&w=majority';
+const dotenv = require('dotenv').config({path:'./../config.env'});
+
+const atlas = process.env.DATABASE;
+
 let url="mongodb://127.0.0.1:27017/Userdata";
 
 //user schema def
