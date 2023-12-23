@@ -4,7 +4,7 @@
   "description": "Shopper Backend Code and Services",
   "main": "index.js",
   "scripts": {
-    "start": "cd src && nodemon app",
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "Ujjawal Shrivastava",
