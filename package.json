@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "jest"
   },
   "author": "Ujjawal Shrivastava",
