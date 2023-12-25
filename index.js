@@ -12,6 +12,11 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
+
+app.get('/', (req, res) => {
+  res.json({'message': 'Node application is running'});
+})
+
 app.use("/user", router);
 
 app.use("/product", router_product);
