@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Shopper Backend Code and Services",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js",
     "test": "jest"
